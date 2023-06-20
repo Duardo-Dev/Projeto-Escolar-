@@ -1,0 +1,13 @@
+{
+    "name": "teste/qrcode",
+    "description": "qr code",
+    "authors": [
+        {
+            "name": "duduzin"
+        }
+    ],
+    "require": {  
+        "php": "^7.4 || ^8.0",
+		"chillerlan/php-qrcode": "dev-main#<commit_hash>"
+    }
+}
