@@ -13,7 +13,8 @@
         }
       </style>
 
-      <header align='center'>
+      <header align='center'> <!--Alinhar  o header para centro da tela -->
+        
         <a href="index.php"> Petrol Combustíveis </a> <span> >> </span> <a href="#"> Login </a>
       </header>
   </head>
