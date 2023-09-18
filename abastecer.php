@@ -25,12 +25,12 @@
 </header>
 
 <?php
-    session_start();
-    require_once 'connect.php';
+    session_start();//Iniciar a sessão 
+    require_once 'connect.php';// puxar do arquivo connect os dados do servidor
 
     if(!isset($_SESSION['user']) and !isset($_SESSION['password'])){
         header('location:login.php');
-        exit;
+        exit;//Se o usuário nao tiver logado, ele não vai conseguir entrar no site
        
     }
 
@@ -38,9 +38,9 @@
     if($_POST){
 
         
-        $dataAtual = new DateTime();
+        $dataAtual = new DateTime();//definindo para a nova variável, que ela vai ser de data
         
-        $dataAtual->setTimezone(new DateTimeZone('America/Fortaleza'));
+        $dataAtual->setTimezone(new DateTimeZone('America/Fortaleza'));//mudando para data e hora de fortaleza
         
         $id_bomb = $_GET['id'];
         $id_tank = $_GET['id_tank'];
