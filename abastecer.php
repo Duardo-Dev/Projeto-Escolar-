@@ -41,14 +41,13 @@
         $dataAtual = new DateTime();//definindo para a nova variável, que ela vai ser de data
         
         $dataAtual->setTimezone(new DateTimeZone('America/Fortaleza'));//mudando para data e hora de fortaleza
-        
+        //pegando variáveis dadas
         $id_bomb = $_GET['id'];
         $id_tank = $_GET['id_tank'];
         $qtd_desejada = $_POST['qtd_desejada'];
         $forma_pagamento = $_POST['forma_pagamento'];
         $id_user = $_SESSION['id_user'];
-
-        $sql_forma_de_pagamento = "SELECT * FROM formas_pagamento where id_pagamento = '$forma_pagamento'";
+        $sql_forma_de_pagamento = "SELECT * FROM formas_pagamento where id_pagamento = '$forma_pagamento'";// selecionando dessa tabela de acordo com o id do usuário
         $result_pagamento = $con -> query($sql_forma_de_pagamento);
         $data = $result_pagamento -> fetch_assoc();
 
@@ -66,7 +65,7 @@
         $preco_comb = $data['preco'];
         $nome_comb = $data['tipo_combustivel'];
         $litros = $data['combustivel_restante'];
-        
+        //equações para fazer o preço da gasolina
         $preco_pagar = ($preco_comb) * ($qtd_desejada);
         $litros_restantes = $litros - $qtd_desejada;
 
@@ -88,10 +87,10 @@
         echo "</fieldset>";
         
 
-       
+       //Adicionando na tabela os valores dados
         $sql_comb = "INSERT INTO nota_fiscal values('', '$id_user', '$id_bomb', '$qtd_desejada', '$preco_pagar', '$data', '$id_pagamento')";
 
-        
+        //Atualizando os dados da table
         $sql_bomba = "UPDATE tanque SET combustivel_restante = '$litros_restantes' WHERE id_tank='$id_tank'";
 
         $con -> query($sql_comb);
