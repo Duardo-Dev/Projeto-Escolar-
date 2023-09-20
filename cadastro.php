@@ -24,9 +24,11 @@
     }
   </style>
 
-
+<!-- A função pega as informações desse site sobre o CEP --> 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
   <script>
+    //Função pra colocar automaticamente as informações de moradia, quando colocar o CEP.
       $(document).ready(function() {
         $('#cep').on('blur', function() {
           var cep = $(this).val().replace(/\D/g, '');
@@ -49,13 +51,13 @@
 
   <script type = text/javascript>
 
-
+//Essa função impede que usuário usse a espaço.
     document.addEventListener("keydown", function(e) {
     if(e.keyCode === 13) {  
         e.preventDefault();
       }
     });
-  
+  //Verificação de CPF.
     const CPF = document.querySelector('CPF');
     function validarCPF(CPF) {
       CPF = CPF.replace(/[^\d]+/g, '');
@@ -140,6 +142,7 @@
     <a href="admapag.php"> Home</a> <span> >> </span> <a href="#"> Cadastrar um novo frentista</a>
   </header>
 <?php
+
 echo "
     <form method='post' action='cadastro_sql.php'>
     <div class='container py-5 h-100'>
