@@ -79,6 +79,7 @@
 
     <?php
     session_start();
+//verificando se existe as sessions de nome e senha do usuário
     if((isset ($_SESSION['nome']) == true) and (isset ($_SESSION['senha']) == true)){
         $nome = $_SESSION['nome'] ;
         $senha = $_SESSION['senha'] ;
@@ -88,10 +89,11 @@
             $resultado =mysqli_fetch_assoc($result);
        
     }
+//se o usuário  for do tipo '1', ele será redirecionado para a tela de ADM.
             if($_SESSION['tipo'] == "1"):
   else:
       
-            
+    //se o usuário nao for do tipo '1', ele será redirecionado para a tela de usuário.      
                 header("location:logado.php");
             endif; 
 
