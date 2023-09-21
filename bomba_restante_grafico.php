@@ -75,8 +75,9 @@
             var data = google.visualization.arrayToDataTable([
                 ["Element", "Bomba", { role: "style" } ],
                 <?php
+
                     include_once ('connect.php');
-                    $sql = "SELECT * FROM tanque";
+                    $sql = "SELECT * FROM tanque";//selecionando a tabela do tanque.
                     $busca = mysqli_query($con,$sql);
                     while($dados = mysqli_fetch_array($busca)){
                         $cidade = $dados['combustivel_restante'];
@@ -107,7 +108,7 @@
             legend: { position: "none" },
         };
 
-        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));//converte o gráfico para colunas.
         chart.draw(view);
         }
     </script>
@@ -119,7 +120,7 @@
     <?php
         session_start();
 
-       
+       //verificação se existe o usuário.
         if(!isset($_SESSION['user']) and !isset($_SESSION['password'])){
             header('location:index.php');
             exit;
