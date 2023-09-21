@@ -35,10 +35,10 @@
             
             echo '<h1>Frentistas</h1>';
 
-            
+            //conexão com o banco.
             $conexao = new mysqli("localhost", "root", "", "venda_combustivel") or die("ERRO NO BANCO DE DADOS");
 
-           
+           //tipo 1(ADM), 0(Usuário)
             $sql = "SELECT * FROM frentista WHERE tipo = 0";
 
             $result = $conexao->query($sql);
