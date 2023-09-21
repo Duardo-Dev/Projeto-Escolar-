@@ -88,16 +88,16 @@
        
         session_start();
 
-        
+        //verificando se existe sessions de usuário e senha, se não voltar para tela de login.
         if(!isset($_SESSION['user']) and !isset($_SESSION['password'])){
             header('location:login.php');
             exit;
         }
    
-       
+       //conectando no banco de dados.
         $con =new mysqli("localhost", "root", "", "venda_combustivel") or die("ERRO NO BANCO DE DADOS");
         
-        
+    
         $sql =  "SELECT * FROM bomba as b, tanque as t, combustivel as c WHERE t.id_bomba = b.id_bomba and t.id_combustivel = c.id_combustivel";
 
         
