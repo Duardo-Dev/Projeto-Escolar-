@@ -34,7 +34,7 @@
        
     }
 
-    
+    //caso tenha algo enviado por POST(Formulário).
     if($_POST){
 
         
@@ -65,7 +65,6 @@
         $preco_comb = $data['preco'];
         $nome_comb = $data['tipo_combustivel'];
         $litros = $data['combustivel_restante'];
-        //equações para fazer o preço da gasolina
         $preco_pagar = ($preco_comb) * ($qtd_desejada);
         $litros_restantes = $litros - $qtd_desejada;
 
@@ -87,12 +86,12 @@
         echo "</fieldset>";
         
 
-       //Adicionando na tabela os valores dados
+       //adicionando na table, as novas notas fiscais.
         $sql_comb = "INSERT INTO nota_fiscal values('', '$id_user', '$id_bomb', '$qtd_desejada', '$preco_pagar', '$data', '$id_pagamento')";
 
-        //Atualizando os dados da table
+        //Atualizando a quantidade de combustivel restante.
         $sql_bomba = "UPDATE tanque SET combustivel_restante = '$litros_restantes' WHERE id_tank='$id_tank'";
-
+        //executando os comandos sql.
         $con -> query($sql_comb);
         $con -> query($sql_bomba);
         
