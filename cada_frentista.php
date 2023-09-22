@@ -41,17 +41,18 @@
         $data = $dataAtual -> format('Y-m-d');
 
 
-    
+        //relacionar todos as tabelas de acordo com o id, em uma única variável que vai ser $data.
         $sql = "SELECT *, sum(valor_pagar) as total FROM nota_fiscal as n, frentista as f, bomba as b, combustivel as c WHERE
         f.id_frentista = n.id_frentista and b.id_bomba = n.id_bomba and
         c.id_combustivel = b.id_combustivel  and n.data = '$data' GROUP BY n.id_frentista";
 
         $result = $con -> query($sql);
-
+        //verificar se existe alguma linha na tabela.
         if($result -> num_rows > 0){
 
         
             while($data = $result -> fetch_assoc()){
+                //criação da tabela dos abastecimentos feitos.
                 echo "
                         <table border=1>
                             <tr>
