@@ -26,7 +26,7 @@
 
 <?php
     session_start();//Iniciar a sessão 
-    require_once 'connect.php';// diferentemente do include, o require não ira rodar(erro) o site se o arquivo não existir.
+    require_once 'connect.php';// diferentemente do include, o require_once(irá ser carregado somente uma vez) não ira rodar o site se o arquivo não existir.
 
     if(!isset($_SESSION['user']) and !isset($_SESSION['password'])){
         header('location:login.php');
