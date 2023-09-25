@@ -41,7 +41,7 @@
         $data = $dataAtual -> format('Y-m-d');
 
 
-        //relacionar todos as tabelas de acordo com o id, em uma única variável que vai ser $data.
+        //seleciona quanto cada frentista recebeu em um dia.
         $sql = "SELECT *, sum(valor_pagar) as total FROM nota_fiscal as n, frentista as f, bomba as b, combustivel as c WHERE
         f.id_frentista = n.id_frentista and b.id_bomba = n.id_bomba and
         c.id_combustivel = b.id_combustivel  and n.data = '$data' GROUP BY n.id_frentista";
