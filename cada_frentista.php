@@ -46,11 +46,12 @@
         f.id_frentista = n.id_frentista and b.id_bomba = n.id_bomba and
         c.id_combustivel = b.id_combustivel  and n.data = '$data' GROUP BY n.id_frentista";
 
-        $result = $con -> query($sql);
+        $result = $con -> query($sql);//executa a linha do sql.
+
         //verificar se existe alguma linha na tabela.
         if($result -> num_rows > 0){
 
-        
+            //puxa os dados das tabelas.
             while($data = $result -> fetch_assoc()){
                 //criação da tabela dos abastecimentos feitos.
                 echo "
