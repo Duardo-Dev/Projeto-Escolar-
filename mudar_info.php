@@ -70,7 +70,7 @@
         
                 <?php
 
-                    
+                    //sistema de repetição, para pegar todos os valores dentro da tabela, de todas as linhas.
                     while($user_data = mysqli_fetch_assoc($result)){
                         echo "<tr>";
                     
